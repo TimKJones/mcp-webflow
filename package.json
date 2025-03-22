@@ -1,0 +1,32 @@
+{
+    "name": "webflow-mcp-server",
+    "version": "1.0.0",
+    "description": "An MCP server for using Webflow APIs",
+    "type": "module",
+    "license": "MIT",
+    "bin": {
+        "mcp-server-okta": "dist/index.js"
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "tsc && node -e \"require('fs').chmodSync('dist/index.js', '755')\"",
+        "prepare": "npm run build",
+        "watch": "tsc --watch",
+        "dev": "NODE_OPTIONS=\"--loader ts-node/esm\" node --experimental-specifier-resolution=node src/index.ts",
+        "start": "node dist/index.js"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.7.0",
+        "dotenv": "^16.4.1",
+        "webflow-api": "^3.1.1",
+        "zod": "^3.24.2"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.5",
+        "prettier": "^3.2.4",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.3.3"
+    }
+}
