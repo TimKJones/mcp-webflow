@@ -106,6 +106,16 @@ Retrieves a list of all Webflow sites accessible to the authenticated user. Retu
 
 Retrieves detailed information about a specific Webflow site by ID. Requires a siteId parameter and returns the same detailed information as get_sites for a single site.
 
+### get_collections
+
+Retrieves a list of all collections for a specific Webflow site. Requires a siteId parameter and returns detailed information about each collection including:
+
+- Collection Name and ID
+- Creation and Last Updated Dates
+- Item Count
+- Collection Slug
+- Collection Settings and Configuration
+
 ## Type Definitions
 
 ```typescript
@@ -149,6 +159,20 @@ interface WebflowSite {
     };
     dataCollectionEnabled: boolean;
     dataCollectionType: string;
+}
+
+interface WebflowCollection {
+    _id: string;
+    lastUpdated: string;
+    createdOn: string;
+    name: string;
+    slug: string;
+    singularName: string;
+    itemCount: number;
+}
+
+interface WebflowCollectionsResponse {
+    collections: WebflowCollection[];
 }
 ```
 
